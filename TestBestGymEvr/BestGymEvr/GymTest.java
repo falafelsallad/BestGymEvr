@@ -104,5 +104,18 @@ class GymTest {
         assertTrue(members.isEmpty());
     }
 
+    @Test
+    public void visitLogTest() {
+        Person test = new Person("001", "test", LocalDate.now().minusMonths(6));
+        Person test2 = new Person("002", "test2", LocalDate.now().minusYears(2));
+        Database database = new Database();
+
+        database.visitLog(test2);
+        database.visitLog(test);
+
+        assertTrue(test.isCurrentMember());
+        assertFalse(test.isFormerMember());
+    }
+
 
 }

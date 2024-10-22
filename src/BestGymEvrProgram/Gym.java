@@ -35,7 +35,7 @@ public class Gym {
         while (true) {
             System.out.println(enterMessage);
             String input = scanner.nextLine();
-            if (input.equalsIgnoreCase(exit)) {
+            if (input.equalsIgnoreCase(exit)) { // Exit program "exit"
                 break;
             }
 
@@ -43,13 +43,13 @@ public class Gym {
 
             if (customer != null) {
                 if (customer.isCurrentMember()) {
-                    System.out.println(memberMessage);
+                    System.out.println(memberMessage); // Welcome message
                     database.visitLog(customer);
-                } else if (customer.isFormerMember()) {
+                } else if (customer.isFormerMember()) { // Former member message
                     System.out.println(formerMemberMSG + customer.getLastPayment());
                 }
             } else {
-                System.out.println(notMemberMSG);
+                System.out.println(notMemberMSG); // Not a member message
 
             }
 
