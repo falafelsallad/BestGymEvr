@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class GymTest {
 
     @Test
-    void checkMembershipValidMember() throws IOException {
+    void checkMembershipValidMember()  {
         List<Person> members = new ArrayList<>();
         members.add(new Person("7703021234", "Alhambra Aromes", LocalDate.now().minusMonths(6)));
         Database database = new Database();
@@ -30,7 +30,7 @@ class GymTest {
 
 
     @Test
-    void checkMembershipExpiredMember() throws IOException {
+    void checkMembershipExpiredMember()  {
         List<Person> members = new ArrayList<>();
         members.add(new Person("7703021234", "Alhambra Aromes", LocalDate.now().minusYears(2))); // 2 years ago
         Database database = new Database();
@@ -40,19 +40,19 @@ class GymTest {
     }
 
     @Test
-    void checkMembershipById() throws IOException {
+    void checkMembershipById()  {
         List<Person> members = new ArrayList<>();
         members.add(new Person("7703021234", "Alhambra Aromes", LocalDate.now().minusMonths(6))); // 6 months ago
         Database database = new Database();
 
 
         assertTrue(database.checkMembership("7703021234", members).isCurrentMember());
-        assertFalse(database.checkMembership("7703021234", members).isFormerMember("7703021234"));
+        assertFalse(database.checkMembership("7703021234", members).isFormerMember());
     }
 
 
     @Test
-    void checkMembershipTest() throws IOException {
+    void checkMembershipTest() {
         List<Person> members = new ArrayList<>();
 
         Person A = new Person("7703021234", "Alhambra Aromes", LocalDate.parse("2024-07-01"));

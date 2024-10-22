@@ -32,7 +32,7 @@ public class Person {
         return lastPayment.isAfter(LocalDate.now().minusYears(1));
     }
 
-    public boolean isFormerMember(String input) {
+    public boolean isFormerMember() {
         return lastPayment.isBefore(LocalDate.now().minusYears(1));
 
     }

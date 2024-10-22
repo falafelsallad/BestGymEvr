@@ -37,7 +37,7 @@ public class Database {
 
     }
 
-    public Person checkMembership(String input, List<Person> members) throws IOException {
+    public Person checkMembership(String input, List<Person> members) {
 
         for (Person member : members) {
             if (member.getPersonID().equals(input) || member.getName().equalsIgnoreCase(input)) {
@@ -49,7 +49,7 @@ public class Database {
 
     public void visitLog(Person customer) {
         if (customer.isCurrentMember()) {
-            Path pathPTFile = Paths.get("src/BestGymEvr/PTVisitlog.txt");
+            Path pathPTFile = Paths.get("src/BestGymEvrProgram/PTVisitlog.txt");
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(pathPTFile.toFile(), true))) {
                 writer.write(customer.getName() + " " + LocalDate.now() + " " + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
                 writer.newLine();

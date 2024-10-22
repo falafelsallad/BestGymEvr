@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Gym {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
 
         String memberMessage = "Welcome member!";
         String formerMemberMSG = "Not a member anymore, your last payment was: ";
@@ -20,7 +20,7 @@ public class Gym {
 
         Database database = new Database();
         Scanner scanner = new Scanner(System.in);
-        Path path = Paths.get("src/BestGymEvr/GymMembers");
+        Path path = Paths.get("src/BestGymEvrProgram/GymMembers");
 
         try {
             try (FileReader fileReader = new FileReader(path.toFile())) {
@@ -45,7 +45,7 @@ public class Gym {
                 if (customer.isCurrentMember()) {
                     System.out.println(memberMessage);
                     database.visitLog(customer);
-                } else if (customer.isFormerMember(input)) {
+                } else if (customer.isFormerMember()) {
                     System.out.println(formerMemberMSG + customer.getLastPayment());
                 }
             } else {
